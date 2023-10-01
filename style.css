@@ -1,0 +1,223 @@
+/* making default values 0 */
+*,
+*::after,
+*::before
+{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;/*all work will be done in actual height & width*/
+    
+
+}
+
+html{
+    font-size: 62.5%; /*100& = 16px*/
+    
+}
+
+.main_div{
+    /* TAKE 100% of view port heigth & width */
+    width: 100vh;
+    height: 100vh;
+    border-color: #F6F6F6;
+    /* making main_div in center */
+    display: grid;
+    place-items: center;
+    margin: 0 auto;
+    
+}
+
+.music_player{
+    width: 350px;
+    height: 550px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 12px 30px 5px rgba(0 ,0 ,0 ,0.2);/*horizontalOffset verticalOffset blur spreadOfShadow color(0.2 is opacity)*/
+    padding: 30px;
+    text-align: center;
+    
+    
+}
+/* targating title id of music_player using # */
+.music_player #title{
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    word-spacing: 5px;
+    color: #171717;
+    margin: 20px 0 5px 0;/*top right bottom left*/
+    font-size: 25px;
+    font-weight: 500;
+    text-shadow: 0 3px 5px rgba(0 ,0 ,0 ,0.4) ;
+
+
+}
+
+.music_player #artist{
+
+    color: #cccaca;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    font-size: 20px;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+.img_container{
+    height: 250px;
+    width: 250px;
+    margin: auto;
+    /* margin: 20px; */
+}
+
+img{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    object-fit: cover;/*this propery helps to take img size same as div size.*/
+    box-shadow: 0 12px 30px 5px rgba(0 ,0 ,0 ,0.4);
+   
+
+}
+
+.music_controls{
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    margin-top: 25px;
+    display: flex;
+   
+    align-items: center;
+}
+
+.music_controls .fas{
+    
+    color: #111111;
+    font-size: 20px;
+    cursor: pointer;
+    filter: drop-shadow(0 12px 30px 5px rgba(0 ,0 ,0 ,0.4) );
+
+}
+
+.music_controls .fas:hover{
+
+    color: gray;
+}
+
+.music_controls .main_button{
+
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #111;
+    color: #f6f6F6;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+
+}
+
+.music_controls .main_button:hover{
+    background-color: white;
+    color: #111111;
+    box-shadow: 0 10px 20px 2px rgba(0 ,0 ,0 ,0.4);
+
+}
+
+/* we will add this animation class dynamically when we press play button through java script */
+
+.animation{
+
+    /* animation_name animation_duration liner(for evenly distribution of time) infinity(to rotate always)  */
+
+    animation: rotatePlayer 3s linear infinite ;
+}
+
+/* for roate animation */
+@keyframes rotatePlayer{
+
+    /* from{
+        transform: rotate(0deg);
+    
+    }
+    to{
+        transform: rotate(360deg)
+    } */
+
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+
+}
+
+/* progress style */
+
+.progressbar_container{
+    width: 100%;
+    height: auto;
+    padding: 10px 0;
+    margin-top: 10px;
+
+}
+
+.progress_div{
+
+    width: 100%;
+    height: 5px;
+    box-shadow: 0 1px 2px rgba(0 ,0, 0, 0.07), 0 2px 4px rgba(0 ,0, 0, 0.07),
+    0 4px 8px rgba(0 ,0, 0, 0.07),0 8px 16px rgba(0 ,0, 0, 0.07),
+    0 16px 32px rgba(0 ,0, 0, 0.07),0 32px 64px rgba(0 ,0, 0, 0.07);
+
+    border-radius: 40px;
+    
+    margin-top: 5px;
+
+    /* nhi smjhe aya its for basically for differnet browsers */
+    transition: all 1s linear ;
+    -moz-transition: all 1s linear;
+    -o-transition: all 1s linear;
+    -webkit-transition: all 1s linear;
+    -webkit-appearance: none;
+
+    cursor: pointer;
+    appearance: none;
+    position: relative;
+
+}
+.progress{
+    position: absolute;
+    
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+   
+    background-color: #000;
+    border-radius: 40px;
+    
+    /* nhi smjhe aya its for basically for differnet browsers */
+    transition: width 1s linear ;
+    -moz-transition: width 1s linear;
+    -o-transition: width 1s linear;
+    -webkit-transition: width 1s linear;
+    -webkit-appearance: none;
+
+    cursor: pointer;
+    appearance: none;
+
+
+}
+
+.progress_duration_meter{
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+}
+
+
